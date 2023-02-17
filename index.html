@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unblocked Tube</title>
+  </head>
+  <body>
+    <iframe
+      id="video"
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/pvojg6dMgs4"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      style="display: block"
+    ></iframe>
+    <label for="videoId_box">ここにvideoId/URLを入力</label>
+    <input type="text" id="videoId_box" />
+    <button id="videoId_button" onclick="onClick()">決定</button>
+  </body>
+  <script>
+        function onClick(){
+            video = document.getElementById("video")
+            id_box = document.getElementById("videoId_box")
+            if(id_box.value.startsWith("https")){
+                const url = new URL(id_box.value);
+                const params = new URLSearchParams(url.search);
+                video.src = "https://www.youtube.com/embed/" + params.get('v')
+            }else{
+                video.src = id_box.value
+            }
+        }
+  </script>
+</html>
